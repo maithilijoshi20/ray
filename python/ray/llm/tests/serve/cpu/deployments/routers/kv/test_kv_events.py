@@ -6,6 +6,9 @@ import pytest
 
 import ray
 from ray.llm._internal.serve.core.configs.llm_config import LLMConfig
+from ray.llm._internal.serve.routing_policies.kv_aware.utils import (
+    _maybe_setup_kv_aware_routing,
+)
 from ray.llm._internal.serve.routing_policies.kv_aware.vllm.kv_events import (
     assign_replica_kv_events_endpoint,
     configure_kv_events_for_kv_routing,
@@ -14,9 +17,6 @@ from ray.llm._internal.serve.routing_policies.kv_aware.vllm.kv_events import (
     get_prompt_token_routing_stats,
     get_token_channel_endpoints,
     resolve_kv_event_source_endpoint,
-)
-from ray.llm._internal.serve.routing_policies.kv_aware.utils import (
-    _maybe_setup_kv_aware_routing,
 )
 from ray.serve.llm.request_router import KVAwareRouter
 
